@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-tools"
+version = "1.0.0"
+description = "A practical CLI for reusable Claude workflows from your terminal."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Himani Singh" }
+]
+license = { text = "MIT" }
+keywords = ["anthropic", "claude", "cli", "developer-tools", "prompts"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "anthropic>=0.95.0",
+  "python-dotenv>=1.0.1",
+  "rich>=14.0.0",
+  "typer>=0.12.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "build>=1.2.1",
+  "ruff>=0.11.0",
+]
+
+[project.scripts]
+claude-tools = "claude_tools.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["claude_tools*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
