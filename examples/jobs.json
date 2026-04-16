@@ -1,0 +1,20 @@
+[
+  {
+    "name": "readme-summary",
+    "prompt": "Summarize this project in 5 bullets."
+  },
+  {
+    "name": "review-snippet",
+    "template": "code_review",
+    "variables": {
+      "code": "def add(a, b): return a + b"
+    }
+  },
+  {
+    "name": "pr-summary",
+    "template": "pr_summary",
+    "variables": {
+      "diff": "Added CLI batch support, tests, and CI workflow."
+    }
+  }
+]
